@@ -1,0 +1,5 @@
+.env
+logs/
+.idea
+venv/
+notified_ids.json
