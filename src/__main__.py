@@ -1,5 +1,6 @@
 import datetime
 import zoneinfo
+from pprint import pprint
 
 import tweepy
 
@@ -31,10 +32,14 @@ def main():
     for tweet in tweets:
         tweet_id = tweet.id
         url = "https://twitter.com/ekusas55000/status/" + str(tweet_id)
-        image_url = tweet.entities["media"][0]["media_url_https"]
+        if "media" not in tweet.entities:
+            continue
 
         if tweet_id in notified_ids:
             continue
+
+        pprint(tweet)
+        image_url = tweet.entities["media"][0]["media_url_https"]
 
         if not isFirst:
             send_discord_message(config.DISCORD_TOKEN, config.DISCORD_CHANNEL_ID, "", {
