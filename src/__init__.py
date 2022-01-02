@@ -3,8 +3,8 @@ import json
 import logging
 import os
 from logging.handlers import TimedRotatingFileHandler
+
 import requests
-import tweepy
 
 
 def init_logger(child_name: str = None) -> logging.Logger:

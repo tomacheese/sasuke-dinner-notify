@@ -1,8 +1,7 @@
-import datetime
-import zoneinfo
 from pprint import pprint
 
 import tweepy
+from tweepy.cursor import ItemIterator
 
 from src import add_notified_id, config, load_notified_ids, send_discord_message
 
@@ -10,12 +9,12 @@ from src import add_notified_id, config, load_notified_ids, send_discord_message
 def get_search(ck: str,
                cs: str,
                at: str,
-               ats: str) -> list:
+               ats: str) -> ItemIterator:
     auth = tweepy.OAuthHandler(ck, cs)
     auth.set_access_token(at, ats)
     api = tweepy.API(auth)
 
-    tweets = tweepy.Cursor(api.search, q="サスケ・ディナー from:ekusas55000", tweet_mode="extended", result_type="mixed",
+    tweets = tweepy.Cursor(api.search_tweets, q="サスケ・ディナー from:ekusas55000", tweet_mode="extended", result_type="mixed",
                            include_entities=True).items(20)
     return tweets
 
