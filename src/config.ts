@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'node:fs'
 
 export const PATH = {
   config: process.env.CONFIG_PATH || './config.json',

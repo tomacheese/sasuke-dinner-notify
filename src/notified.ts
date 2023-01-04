@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'node:fs'
 import { PATH } from './config'
 
 export class Notified {
