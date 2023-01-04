@@ -33,9 +33,10 @@ async function main() {
     config.discord.channelId
   )
 
-  // Get tweets
+  // 1. Get the latest 200 tweets of a specific user using the `statuses/user_timeline` API.
   const tweets = await getUserTweets(twitterApi, config.twitter.targetUserId)
 
+  // 2. When operating for the first time (= initialize mode), save the tweet ID of the acquired tweets as notified.
   const initializeMode = Notified.isFirst()
   if (initializeMode) {
     console.log('Initialize mode. Save all tweets to file')
@@ -45,6 +46,7 @@ async function main() {
     return
   }
 
+  // 3. From the retrieved tweets, filter only "tweets that have not yet been notified" and "tweets that contain specific words".
   const notifyTweets = tweets.filter((tweet) => {
     return (
       !Notified.isNotified(tweet.id_str) &&
@@ -53,6 +55,7 @@ async function main() {
     )
   })
 
+  // 4. Post filtered tweets to Discord. The tweet ID of the posted tweets will be saved as notified.
   for (const tweet of notifyTweets) {
     if (!tweet.entities.media) {
       continue
