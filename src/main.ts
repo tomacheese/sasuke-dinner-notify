@@ -68,7 +68,7 @@ async function main() {
       image: {
         url: imageUrl,
       },
-      color: 0x00_FF_00,
+      color: 0x00_ff_00,
       timestamp: new Date(tweet.created_at).toISOString(),
     }
     await discordApi.sendMessage('', embed)
