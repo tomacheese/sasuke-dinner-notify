@@ -1,6 +1,2 @@
-.env
-logs/
-.idea
-venv/
-notified_ids.json
-*.pyc
+node_modules/
+data/
