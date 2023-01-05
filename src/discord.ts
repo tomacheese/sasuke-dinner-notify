@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { ProxyConfig } from './config'
 
 export interface DiscordEmbedFooter {
   text: string
@@ -64,10 +65,12 @@ export interface DiscordEmbed {
 export class DiscordApi {
   private token: string
   private channelId: string
+  private proxy?: ProxyConfig
 
-  constructor(token: string, channelId: string) {
+  constructor(token: string, channelId: string, proxy?: ProxyConfig) {
     this.token = token
     this.channelId = channelId
+    this.proxy = proxy
   }
 
   async sendMessage(message: string, embed?: DiscordEmbed) {
@@ -84,6 +87,19 @@ export class DiscordApi {
           'Content-Type': 'application/json',
           Authorization: `Bot ${this.token}`,
         },
+        proxy: this.proxy
+          ? {
+              host: this.proxy.host,
+              port: this.proxy.port,
+              auth:
+                this.proxy.username && this.proxy.password
+                  ? {
+                      username: this.proxy.username,
+                      password: this.proxy.password,
+                    }
+                  : undefined,
+            }
+          : false,
       }
     )
     if (response.status !== 200) {
