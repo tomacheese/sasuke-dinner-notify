@@ -10,6 +10,7 @@ export interface ProxyConfig {
   port: number
   username?: string
   password?: string
+  protocol?: string
 }
 
 export interface Config {
