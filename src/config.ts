@@ -5,6 +5,13 @@ export const PATH = {
   notified: process.env.NOTIFIED_PATH || './notified.json',
 }
 
+export interface ProxyConfig {
+  host: string
+  port: number
+  username?: string
+  password?: string
+}
+
 export interface Config {
   twitter: {
     consumerKey: string
@@ -15,6 +22,7 @@ export interface Config {
     token: string
     channelId: string
   }
+  proxy?: ProxyConfig
 }
 
 const isConfig = (config: any): config is Config => {

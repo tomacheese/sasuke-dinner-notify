@@ -30,7 +30,8 @@ async function main() {
   // DiscordApi
   const discordApi = new DiscordApi(
     config.discord.token,
-    config.discord.channelId
+    config.discord.channelId,
+    config.proxy
   )
 
   // 1. Get the latest 200 tweets of a specific user using the `statuses/user_timeline` API.
