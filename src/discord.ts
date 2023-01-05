@@ -98,6 +98,7 @@ export class DiscordApi {
                       password: this.proxy.password,
                     }
                   : undefined,
+              protocol: this.proxy.protocol || 'http',
             }
           : false,
       }
