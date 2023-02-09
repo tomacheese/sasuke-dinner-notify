@@ -17,3 +17,4 @@ rules:
   '@typescript-eslint/no-explicit-any': off
   'unicorn/prefer-top-level-await': off
   'unicorn/number-literal-case': off
+  no-console: error

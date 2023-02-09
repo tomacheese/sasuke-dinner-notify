@@ -1,0 +1,96 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "ProxyConfig": {
+            "properties": {
+                "host": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "number"
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "host",
+                "port"
+            ],
+            "type": "object"
+        }
+    },
+    "properties": {
+        "discord": {
+            "properties": {
+                "channelId": {
+                    "type": "string"
+                },
+                "token": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "channelId",
+                "token"
+            ],
+            "type": "object"
+        },
+        "proxy": {
+            "$ref": "#/definitions/ProxyConfig"
+        },
+        "twapi": {
+            "properties": {
+                "baseUrl": {
+                    "type": "string"
+                },
+                "basicPassword": {
+                    "type": "string"
+                },
+                "basicUsername": {
+                    "type": "string"
+                },
+                "targetUserId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "baseUrl",
+                "basicPassword",
+                "basicUsername",
+                "targetUserId"
+            ],
+            "type": "object"
+        },
+        "twitter": {
+            "properties": {
+                "consumerKey": {
+                    "type": "string"
+                },
+                "consumerSecret": {
+                    "type": "string"
+                },
+                "targetUserId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "consumerKey",
+                "consumerSecret",
+                "targetUserId"
+            ],
+            "type": "object"
+        }
+    },
+    "required": [
+        "discord"
+    ],
+    "type": "object"
+}
+

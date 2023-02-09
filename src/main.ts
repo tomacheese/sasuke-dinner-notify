@@ -1,31 +1,16 @@
 import { getConfig } from './config'
-import { TwitterApi } from 'twitter-api-v2'
 import { DiscordApi, DiscordEmbed } from './discord'
-import { StatusesUserTimelineResponse } from './models/twitter'
+import { Logger } from './logger'
 import { Notified } from './notified'
-
-async function getUserTweets(api: TwitterApi, userId: string) {
-  const response = await api.v1.get<StatusesUserTimelineResponse>(
-    'statuses/user_timeline.json',
-    {
-      user_id: userId,
-      count: 200,
-      exclude_replies: true,
-      include_rts: false,
-      tweet_mode: 'extended',
-    }
-  )
-  return response
-}
+import { TwApi } from './twitter.class'
 
 async function main() {
+  const logger = Logger.configure('main')
+  logger.info('✨ main()')
   const config = getConfig()
 
   // TwitterApi
-  const twitterApi = new TwitterApi({
-    appKey: config.twitter.consumerKey,
-    appSecret: config.twitter.consumerSecret,
-  })
+  const twApi = new TwApi(config)
 
   // DiscordApi
   const discordApi = new DiscordApi(
@@ -35,12 +20,12 @@ async function main() {
   )
 
   // 1. Get the latest 200 tweets of a specific user using the `statuses/user_timeline` API.
-  const tweets = await getUserTweets(twitterApi, config.twitter.targetUserId)
+  const tweets = await twApi.getUserTweets()
 
   // 2. When operating for the first time (= initialize mode), save the tweet ID of the acquired tweets as notified.
   const initializeMode = Notified.isFirst()
   if (initializeMode) {
-    console.log('Initialize mode. Save all tweets to file')
+    logger.info('Initialize mode. Save all tweets to file')
     for (const tweet of tweets) {
       Notified.addNotified(tweet.id_str)
     }
@@ -65,7 +50,7 @@ async function main() {
     const tweetUrl = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
     const imageUrl = tweet.entities.media[0].media_url_https
 
-    console.log(`Send message to Discord: ${tweetUrl}`)
+    logger.info(`Send message to Discord: ${tweetUrl}`)
     const embed: DiscordEmbed = {
       title: 'サスケ・ディナー',
       description: tweetUrl,
