@@ -23,5 +23,6 @@ COPY tsconfig.json .
 ENV NODE_ENV=production
 ENV CONFIG_PATH=/data/config.json
 ENV NOTIFIED_PATH=/data/notified.json
+ENV LOG_DIR /data/logs
 
 ENTRYPOINT [ "/app/entrypoint.sh" ]
