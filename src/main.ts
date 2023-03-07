@@ -1,6 +1,6 @@
 import { getConfig } from './config'
 import { DiscordApi, DiscordEmbed } from './discord'
-import { Logger } from './logger'
+import { Logger } from '@book000/node-utils'
 import { Notified } from './notified'
 import { TwApi } from './twitter.class'
 
