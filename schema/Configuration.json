@@ -1,96 +1,69 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
-        "ProxyConfig": {
+        "ExperimentsConfiguration": {
+            "description": "Defines experiment options for Puppeteer.\n\nSee individual properties for more information.",
             "properties": {
-                "host": {
-                    "type": "string"
-                },
-                "password": {
-                    "type": "string"
-                },
-                "port": {
-                    "type": "number"
-                },
-                "protocol": {
-                    "type": "string"
-                },
-                "username": {
-                    "type": "string"
+                "macArmChromiumEnabled": {
+                    "description": "Require Puppeteer to download Chromium for Apple M1.\n\nOn Apple M1 devices Puppeteer by default downloads the version for\nIntel's processor which runs via Rosetta. It works without any problems,\nhowever, with this option, you should get more efficient resource usage\n(CPU and RAM) that could lead to a faster execution time.\n\nCan be overridden by `PUPPETEER_EXPERIMENTAL_CHROMIUM_MAC_ARM`.",
+                    "type": "boolean"
                 }
             },
-            "required": [
-                "host",
-                "port"
-            ],
             "type": "object"
         }
     },
+    "description": "Defines options to configure Puppeteer's behavior during installation and\nruntime.\n\nSee individual properties for more information.",
     "properties": {
-        "discord": {
-            "properties": {
-                "channelId": {
-                    "type": "string"
-                },
-                "token": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "channelId",
-                "token"
-            ],
-            "type": "object"
+        "browserRevision": {
+            "description": "Specifies a certain version of the browser you'd like Puppeteer to use.\n\nCan be overridden by `PUPPETEER_BROWSER_REVISION`.\n\nSee {@link PuppeteerNode.launchpuppeteer.launch} on how executable path\nis inferred.",
+            "type": "string"
         },
-        "proxy": {
-            "$ref": "#/definitions/ProxyConfig"
+        "cacheDirectory": {
+            "description": "Defines the directory to be used by Puppeteer for caching.\n\nCan be overridden by `PUPPETEER_CACHE_DIR`.",
+            "type": "string"
         },
-        "twapi": {
-            "properties": {
-                "baseUrl": {
-                    "type": "string"
-                },
-                "basicPassword": {
-                    "type": "string"
-                },
-                "basicUsername": {
-                    "type": "string"
-                },
-                "targetUserId": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "baseUrl",
-                "basicPassword",
-                "basicUsername",
-                "targetUserId"
+        "defaultProduct": {
+            "description": "Specifies which browser you'd like Puppeteer to use.\n\nCan be overridden by `PUPPETEER_PRODUCT`.",
+            "enum": [
+                "chrome",
+                "firefox"
             ],
-            "type": "object"
+            "type": "string"
         },
-        "twitter": {
-            "properties": {
-                "consumerKey": {
-                    "type": "string"
-                },
-                "consumerSecret": {
-                    "type": "string"
-                },
-                "targetUserId": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "consumerKey",
-                "consumerSecret",
-                "targetUserId"
+        "downloadHost": {
+            "description": "Specifies the URL prefix that is used to download Chromium.\n\nCan be overridden by `PUPPETEER_DOWNLOAD_HOST`.",
+            "type": "string"
+        },
+        "downloadPath": {
+            "description": "Specifies the path for the downloads folder.\n\nCan be overridden by `PUPPETEER_DOWNLOAD_PATH`.",
+            "type": "string"
+        },
+        "executablePath": {
+            "description": "Specifies an executable path to be used in\n{@link PuppeteerNode.launchpuppeteer.launch}.\n\nCan be overridden by `PUPPETEER_EXECUTABLE_PATH`.",
+            "type": "string"
+        },
+        "experiments": {
+            "$ref": "#/definitions/ExperimentsConfiguration",
+            "description": "Defines experimental options for Puppeteer."
+        },
+        "logLevel": {
+            "description": "Tells Puppeteer to log at the given level.\n\nAt the moment, any option silences logging.",
+            "enum": [
+                "error",
+                "silent",
+                "warn"
             ],
-            "type": "object"
+            "type": "string"
+        },
+        "skipDownload": {
+            "description": "Tells Puppeteer to not download during installation.\n\nCan be overridden by `PUPPETEER_SKIP_DOWNLOAD`.",
+            "type": "boolean"
+        },
+        "temporaryDirectory": {
+            "description": "Defines the directory to be used by Puppeteer for creating temporary files.\n\nCan be overridden by `PUPPETEER_TMP_DIR`.",
+            "type": "string"
         }
     },
-    "required": [
-        "discord"
-    ],
     "type": "object"
 }
 
