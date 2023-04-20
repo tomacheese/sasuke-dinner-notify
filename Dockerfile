@@ -22,6 +22,7 @@ RUN apk update && \
   apk add --no-cache curl fontconfig font-noto-cjk && \
   fc-cache -fv && \
   apk add --no-cache \
+  icu-libs \
   chromium \
   nss \
   freetype \
