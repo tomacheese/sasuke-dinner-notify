@@ -1,30 +1,41 @@
-FROM alpine:edge
+FROM debian:bullseye-slim
 
-# hadolint ignore=DL3018
-RUN apk update && \
-  apk add --no-cache dumb-init && \
-  apk add --no-cache curl fontconfig font-noto-cjk && \
-  fc-cache -fv && \
-  apk add --no-cache \
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# hadolint ignore=DL3008
+RUN apt-get update && \
+  apt-get install -y \
   chromium \
-  nss \
-  freetype \
-  freetype-dev \
-  harfbuzz \
-  ca-certificates \
-  ttf-freefont \
-  nodejs \
-  yarn \
+  chromium-l10n \
+  fonts-liberation \
+  fonts-roboto \
+  hicolor-icon-theme \
+  libcanberra-gtk-module \
+  libexif-dev \
+  libgl1-mesa-dri \
+  libgl1-mesa-glx \
+  libpangox-1.0-0 \
+  libv4l-0 \
+  fonts-symbola \
   xvfb \
   xauth \
   dbus \
   dbus-x11 \
   x11vnc \
-  && \
-  apk add --update --no-cache tzdata && \
-  cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
-  echo "Asia/Tokyo" > /etc/timezone && \
-  apk del tzdata
+  ca-certificates \
+  curl \
+  gnupg2 \
+  dumb-init \
+  --no-install-recommends && \
+  rm -rf /var/lib/apt/lists/* && \
+  curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
+  apt-get update && \
+  apt-get install -y --no-install-recommends nodejs && \
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+  apt-get update && \
+  apt-get install -y --no-install-recommends yarn && \
+  rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
@@ -40,7 +51,7 @@ ENV DISPLAY :99
 ENV NODE_ENV production
 ENV CONFIG_PATH /data/config.json
 ENV NOTIFIED_PATH /data/notified.json
-ENV CHROMIUM_PATH /usr/bin/chromium-browser
+ENV CHROMIUM_PATH /usr/bin/chromium
 ENV LOG_DIR /data/logs
 
 ENTRYPOINT ["dumb-init", "--"]

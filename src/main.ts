@@ -4,7 +4,11 @@ import { Twitter } from './twitter'
 import { SDNBrowser } from './browser'
 import { DiscordApi } from './discord'
 import { Notified } from './notified'
-import { isFullUser } from 'twitter-d'
+import { FullUser, User } from 'twitter-d'
+
+function isFullUser(user: User): user is FullUser {
+  return 'screen_name' in user
+}
 
 async function main() {
   const logger = Logger.configure('main')
