@@ -19,10 +19,9 @@ FROM alpine:edge as runner
 # hadolint ignore=DL3018
 RUN apk update && \
   apk add --no-cache dumb-init && \
-  apk add --no-cache curl fontconfig font-noto-cjk && \
+  apk add --no-cache curl fontconfig font-noto-cjk icu-libs && \
   fc-cache -fv && \
   apk add --no-cache \
-  icu-libs \
   chromium \
   nss \
   freetype \
