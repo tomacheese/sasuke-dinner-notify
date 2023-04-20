@@ -9,7 +9,7 @@ rm -rf /data/userdata/Singleton* || true
 
 while :
 do
-  node index.js
+  yarn start
 
   # wait 10 minutes before restarting
   echo "Waiting 10 minutes before restarting..."
