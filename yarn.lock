@@ -23,12 +23,12 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@book000/node-utils@1.2.36":
-  version "1.2.36"
-  resolved "https://registry.yarnpkg.com/@book000/node-utils/-/node-utils-1.2.36.tgz#6b74253310bccd5611679885600d7c260e1e4b78"
-  integrity sha512-tmCpKmblM2KQiSoI5MKOa1pdahW8Cg/FNVXE18ETD27QHVY3g2lJrN6ehQid1+XbSbjIxVLWzebIg3O+YW9WWQ==
+"@book000/node-utils@1.2.39":
+  version "1.2.39"
+  resolved "https://registry.yarnpkg.com/@book000/node-utils/-/node-utils-1.2.39.tgz#8765aeabcb1950ad66add591eb46f4f1f00a05af"
+  integrity sha512-yTpZhcs1tLrQN/Dg8tNrAqmzAkmZYnleddVceiBcxbYOf2qmJ2s4nJpAsSA6j0ZhmubECFm2yWns76g1fHt+Hg==
   dependencies:
-    axios "1.3.5"
+    axios "1.3.6"
     cycle "1.0.3"
     form-data "4.0.0"
     jsonc-parser "3.2.0"
@@ -491,15 +491,6 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==
-
-axios@1.3.5:
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.3.5.tgz#e07209b39a0d11848e3e341fa087acd71dadc542"
-  integrity sha512-glL/PvG/E+xCWwV8S6nCHcrfg1exGx7vxyUIivIA1iL7BIh6bePylCfVHwp6k13ao7SATxB6imau2kqY+I67kw==
-  dependencies:
-    follow-redirects "^1.15.0"
-    form-data "^4.0.0"
-    proxy-from-env "^1.1.0"
 
 axios@1.3.6:
   version "1.3.6"
