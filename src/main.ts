@@ -32,7 +32,7 @@ async function main() {
 
   // 1. Get the latest 200 tweets of a specific user using the `statuses/user_timeline` API.
   const tweets = await twitter.getUserTweets(screenName, 200)
-
+  logger.info(`Got ${tweets.length} tweets`)
   await browser.close()
 
   // DiscordApi
@@ -59,6 +59,7 @@ async function main() {
       tweet.full_text.includes('サスケ・ディナー')
     )
   })
+  logger.info(`Notify ${notifyTweets.length} tweets`)
 
   // 4. Post filtered tweets to Discord. The tweet ID of the posted tweets will be saved as notified.
   for (const tweet of notifyTweets) {
