@@ -4,7 +4,7 @@ import { Twitter } from './twitter'
 import { SDNBrowser } from './browser'
 import { DiscordApi } from './discord'
 import { Notified } from './notified'
-import { FullUser, User } from 'twitter-d'
+import { FullUser, Status, User } from 'twitter-d'
 
 function isFullUser(user: User): user is FullUser {
   return 'screen_name' in user
@@ -25,14 +25,23 @@ async function main() {
   }
 
   const browser = await SDNBrowser.init(config.get('twitter'))
-  const twitter = new Twitter(browser)
-  const screenName = await twitter.getUserScreenName(
-    config.get('twitter').targetUserId
-  )
 
-  // 1. Get the latest 200 tweets of a specific user using the `statuses/user_timeline` API.
-  const tweets = await twitter.getUserTweets(screenName, 200)
-  logger.info(`Got ${tweets.length} tweets`)
+  let tweets: Status[] = []
+  try {
+    const twitter = new Twitter(browser)
+    const screenName = await twitter.getUserScreenName(
+      config.get('twitter').targetUserId
+    )
+
+    // 1. Get the latest 200 tweets of a specific user using the `statuses/user_timeline` API.
+    tweets = await twitter.getUserTweets(screenName, 200)
+    logger.info(`Got ${tweets.length} tweets`)
+  } catch (error) {
+    await browser.close()
+    logger.error('❌ Failed to get tweets', error as Error)
+    return
+  }
+
   await browser.close()
 
   // DiscordApi
