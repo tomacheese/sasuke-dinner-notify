@@ -1,13 +1,11 @@
+import { Discord, DiscordEmbed, Logger } from '@book000/node-utils'
 import { SDNConfiguration } from './config'
-import { DiscordEmbed, Logger } from '@book000/node-utils'
-import { Twitter } from './twitter'
-import { SDNBrowser } from './browser'
-import { DiscordApi } from './discord'
 import { Notified } from './notified'
-import { FullUser, Status, User } from 'twitter-d'
+import { FullUser } from 'twitter-d'
+import { Twitter } from '@book000/twitterts'
 
-function isFullUser(user: User): user is FullUser {
-  return 'screen_name' in user
+function isFullUser(user: any): user is FullUser {
+  return user.id_str !== undefined
 }
 
 async function main() {
@@ -16,90 +14,111 @@ async function main() {
   const config = new SDNConfiguration()
   config.load()
   if (!config.validate()) {
-    logger.error(
-      `❌ Configuration validation failed: ${config
-        .getValidateFailures()
-        .join(', ')}`
-    )
+    logger.error('❌ Config is invalid')
+    for (const failure of config.getValidateFailures()) {
+      logger.error('- ' + failure)
+    }
     return
   }
+  logger.info('✅ Config is valid. Login to Twitter...')
 
-  const browser = await SDNBrowser.init(config.get('twitter'))
-
-  let tweets: Status[] = []
+  const twitter = await Twitter.login({
+    username: config.get('twitter').username,
+    password: config.get('twitter').password,
+    otpSecret: config.get('twitter').otpSecret,
+    puppeteerOptions: {
+      executablePath: process.env.CHROMIUM_PATH,
+      userDataDirectory: process.env.USER_DATA_DIRECTORY || './data/userdata',
+    },
+  })
   try {
-    const twitter = new Twitter(browser)
-    const screenName = await twitter.getUserScreenName(
-      config.get('twitter').targetUserId
-    )
+    const discordConfig = config.get('discord')
+    const discord = new Discord({
+      token: discordConfig.token,
+      channelId: discordConfig.channelId,
+    })
+    if (discord === null) {
+      throw new Error('Discord config is invalid')
+    }
 
     // 1. Get the latest 200 tweets of a specific user using the `statuses/user_timeline` API.
-    tweets = await twitter.getUserTweets(screenName, 200)
-    logger.info(`Got ${tweets.length} tweets`)
-  } catch (error) {
-    await browser.close()
-    logger.error('❌ Failed to get tweets', error as Error)
-    return
-  }
+    logger.info('🔍 Fetching tweets...')
+    const tweets = await twitter.getUserTweets({
+      screenName: 'ekusas55000',
+      limit: 200,
+    })
+    logger.info(`🔍 Fetched ${tweets.length} tweets`)
 
-  await browser.close()
-
-  // DiscordApi
-  const discordApi = new DiscordApi(
-    config.get('discord').token,
-    config.get('discord').channelId
-  )
-
-  // 2. When operating for the first time (= initialize mode), save the tweet ID of the acquired tweets as notified.
-  const initializeMode = Notified.isFirst()
-  if (initializeMode) {
-    logger.info('Initialize mode. Save all tweets to file')
-    for (const tweet of tweets) {
-      Notified.addNotified(tweet.id_str)
-    }
-    return
-  }
-
-  // 3. From the retrieved tweets, filter only "tweets that have not yet been notified" and "tweets that contain specific words".
-  const notifyTweets = tweets.filter((tweet) => {
-    return (
-      !Notified.isNotified(tweet.id_str) &&
-      tweet.full_text &&
-      tweet.full_text.includes('サスケ・ディナー')
+    const notified = new Notified(
+      process.env.NOTIFIED_PATH || './data/notified.json'
     )
-  })
-  logger.info(`Notify ${notifyTweets.length} tweets`)
 
-  // 4. Post filtered tweets to Discord. The tweet ID of the posted tweets will be saved as notified.
-  for (const tweet of notifyTweets) {
-    if (!isFullUser(tweet.user)) {
-      continue
+    // 2. When operating for the first time (= initialize mode), save the tweet ID of the acquired tweets as notified.
+    const initializeMode = notified.isFirst()
+    if (initializeMode) {
+      logger.info('💾 Initialize mode. Save all tweets to file')
+      for (const tweet of tweets) {
+        notified.add(tweet.id_str)
+      }
+
+      logger.info('🚀 Closing browser...')
+      await twitter.close()
+      return
     }
-    if (!tweet.entities.media) {
-      continue
+
+    // 3. From the retrieved tweets, filter only "tweets that have not yet been notified" and "tweets that contain specific words".
+    const notifyTweets = tweets.filter((tweet) => {
+      return (
+        !notified.isNotified(tweet.id_str) &&
+        tweet.full_text &&
+        tweet.full_text.includes('サスケ・ディナー')
+      )
+    })
+    logger.info(`🔔 Notify ${notifyTweets.length} tweets`)
+
+    // 4. Post filtered tweets to Discord. The tweet ID of the posted tweets will be saved as notified.
+    for (const tweet of notifyTweets.reverse()) {
+      if (!isFullUser(tweet.user)) {
+        continue
+      }
+      if (!tweet.entities.media) {
+        continue
+      }
+
+      const tweetUrl = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
+      const imageUrl = tweet.entities.media[0].media_url_https
+
+      logger.info(`Send message to Discord: ${tweetUrl}`)
+      const embed: DiscordEmbed = {
+        title: 'サスケ・ディナー',
+        description: tweetUrl,
+        image: {
+          url: imageUrl,
+        },
+        color: 0x00_ff_00,
+        timestamp: new Date(tweet.created_at).toISOString(),
+      }
+      await discord.sendMessage({
+        content: '',
+        embeds: [embed],
+      })
+      notified.add(tweet.id_str)
+
+      // wait 1 second (Discord API rate limit)
+      await new Promise((resolve) => setTimeout(resolve, 1000))
     }
-
-    const tweetUrl = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
-    const imageUrl = tweet.entities.media[0].media_url_https
-
-    logger.info(`Send message to Discord: ${tweetUrl}`)
-    const embed: DiscordEmbed = {
-      title: 'サスケ・ディナー',
-      description: tweetUrl,
-      image: {
-        url: imageUrl,
-      },
-      color: 0x00_ff_00,
-      timestamp: new Date(tweet.created_at).toISOString(),
-    }
-    await discordApi.sendMessage('', embed)
-    Notified.addNotified(tweet.id_str)
-
-    // wait 1 second (Discord API rate limit)
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+  } catch (error) {
+    logger.error("Error: Couldn't fetch tweets", error as Error)
   }
+
+  logger.info('🚀 Closing browser...')
+  await twitter.close()
 }
 
 ;(async () => {
-  await main()
+  await main().catch((error) => {
+    Logger.configure('main').error('❌ Error', error as Error)
+    // eslint-disable-next-line unicorn/no-process-exit
+    process.exit(1)
+  })
 })()

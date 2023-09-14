@@ -1,18 +1,11 @@
 import { ConfigFramework } from '@book000/node-utils'
 
-export const PATH = {
-  notified: process.env.NOTIFIED_PATH || './notified.json',
-}
-
-export interface TwitterAccount {
-  username: string
-  password: string
-  authCodeSecret?: string
-  targetUserId: string
-}
-
 export interface Configuration {
-  twitter: TwitterAccount
+  twitter: {
+    username: string
+    password: string
+    otpSecret?: string
+  }
   discord: {
     token: string
     channelId: string
@@ -33,12 +26,6 @@ export class SDNConfiguration extends ConfigFramework<Configuration> {
         typeof config.twitter.password === 'string',
       'twitter.password is not empty': (config) =>
         config.twitter.password.trim() !== '',
-      'twitter.targetUserId is defined': (config) =>
-        !!config.twitter.targetUserId,
-      'twitter.targetUserId is string': (config) =>
-        typeof config.twitter.targetUserId === 'string',
-      'twitter.targetUserId is not empty': (config) =>
-        config.twitter.targetUserId.trim() !== '',
       'discord is defined': (config) => !!config.discord,
       'discord.token is defined': (config) => !!config.discord.token,
       'discord.token is string': (config) =>

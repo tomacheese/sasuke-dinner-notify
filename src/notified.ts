@@ -1,26 +1,40 @@
 import fs from 'node:fs'
-import { PATH } from './config'
 
 export class Notified {
-  public static isFirst(): boolean {
-    const path = PATH.notified
-    return !fs.existsSync(path)
+  private path: string
+  private notified: string[] = []
+
+  constructor(path: string) {
+    this.path = path
+
+    if (fs.existsSync(path)) {
+      this.load()
+    }
   }
 
-  public static isNotified(tweetId: string): boolean {
-    const path = PATH.notified
-    const json = fs.existsSync(path)
-      ? JSON.parse(fs.readFileSync(path, 'utf8'))
-      : []
-    return json.includes(tweetId)
+  public isNotified(id: string): boolean {
+    return this.notified.includes(id)
   }
 
-  public static addNotified(tweetId: string): void {
-    const path = PATH.notified
-    const json = fs.existsSync(path)
-      ? JSON.parse(fs.readFileSync(path, 'utf8'))
-      : []
-    json.push(tweetId)
-    fs.writeFileSync(path, JSON.stringify(json))
+  public add(id: string): void {
+    this.notified.push(id)
+    this.save()
+  }
+
+  public isFirst(): boolean {
+    return !fs.existsSync(this.path)
+  }
+
+  public load(): void {
+    this.notified = JSON.parse(fs.readFileSync(this.path, 'utf8'))
+  }
+
+  public save(): void {
+    // eslint-disable-next-line unicorn/no-null
+    fs.writeFileSync(this.path, JSON.stringify(this.notified, null, 2))
+  }
+
+  public get length(): number {
+    return this.notified.length
   }
 }
