@@ -34,7 +34,8 @@ ENV CHROMIUM_PATH=/usr/bin/chromium-browser
 ENV NODE_ENV production
 ENV CONFIG_PATH /data/config.json
 ENV NOTIFIED_PATH /data/notified.json
-ENV LOG_DIR /data/logs
+ENV LOG_DIR /data/logs/
+ENV USER_DATA_DIRECTORY /data/userdata/
 
 ENTRYPOINT ["tini", "--"]
 CMD ["/app/entrypoint.sh"]
