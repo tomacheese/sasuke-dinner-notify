@@ -30,6 +30,12 @@ async function main() {
       executablePath: process.env.CHROMIUM_PATH,
       userDataDirectory: process.env.USER_DATA_DIRECTORY || './data/userdata',
     },
+    debugOptions: {
+      outputResponse: {
+        enable: true,
+        outputDirectory: '/data/responses',
+      },
+    },
   })
   try {
     const discordConfig = config.get('discord')
