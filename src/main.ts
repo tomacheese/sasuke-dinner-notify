@@ -33,7 +33,6 @@ async function main() {
     debugOptions: {
       outputResponse: {
         enable: true,
-        outputDirectory: '/data/responses',
       },
     },
   })
