@@ -40,10 +40,10 @@
     call-me-maybe "^1.0.1"
     js-yaml "^4.1.0"
 
-"@book000/node-utils@1.12.107":
-  version "1.12.107"
-  resolved "https://registry.yarnpkg.com/@book000/node-utils/-/node-utils-1.12.107.tgz#68089493ce17480e46704e2476d4c1bd1bc53ea6"
-  integrity sha512-t/j26QgAoKXYtmnHhZDbzXaz05rocRe3IEHfez2ww1OAIS7R0oCBgmVqOy9ffgkBX4SI835aIfz43Y60cqfPvw==
+"@book000/node-utils@1.12.110":
+  version "1.12.110"
+  resolved "https://registry.yarnpkg.com/@book000/node-utils/-/node-utils-1.12.110.tgz#4f37b6676ba0314f48f957298de608f56c07f023"
+  integrity sha512-IePJ5FggevgIfUNUYqFgVg8ClokTNc36mbdaygg9FS27J9XlnqNSHkzPcCqiU8jW5mULZxA+KbJZ0DnJd8VJ/A==
   dependencies:
     axios "1.6.8"
     cycle "1.0.3"
@@ -68,17 +68,17 @@
     winston "3.13.0"
     winston-daily-rotate-file "5.0.0"
 
-"@book000/twitterts@0.60.76":
-  version "0.60.76"
-  resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.60.76.tgz#18eb83bb78ae00e0a41a6954005ba8fa9b7374f2"
-  integrity sha512-GHT0axf/sgbvAJQ6PEUb2XHheTEgud2resvuPX0Jx3jmX+p5YYDc5OHzRZp8onRtCCX6S/iCd092tXYvY6g+zw==
+"@book000/twitterts@0.60.84":
+  version "0.60.84"
+  resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.60.84.tgz#953c81644ef26a45c14652573486f54296fc5c39"
+  integrity sha512-k28i0q3Mk0PaqbgUG4+JtfVifi0qY2/dgRu82pOKbPU+dg2/pBOBrAbVI0J+aBTSJ7hX5YW/zTdzbaYuD75Wrg==
   dependencies:
-    "@book000/node-utils" "1.12.107"
+    "@book000/node-utils" "1.12.110"
     genson-js "0.0.8"
     json-schema-to-typescript "13.1.2"
     mysql2 "3.9.3"
     otplib "12.0.1"
-    puppeteer-core "22.6.1"
+    puppeteer-core "22.6.2"
     twitter-d "0.6.0"
     typeorm "0.3.20"
     typeorm-naming-strategies "4.1.0"
@@ -860,10 +860,10 @@ chokidar@^3.5.1:
   optionalDependencies:
     fsevents "~2.3.2"
 
-chromium-bidi@0.5.14:
-  version "0.5.14"
-  resolved "https://registry.yarnpkg.com/chromium-bidi/-/chromium-bidi-0.5.14.tgz#0edd73fe91bdb3c7a1d6c890e5c68520cbf97eb9"
-  integrity sha512-zm4mX61/U4KXs+S/0WIBHpOWqtpW6FPv1i7n4UZqDDc5LOQ9/Y1MAnB95nO7i/lFFuijLjpe1XMdNcqDqwlH5w==
+chromium-bidi@0.5.16:
+  version "0.5.16"
+  resolved "https://registry.yarnpkg.com/chromium-bidi/-/chromium-bidi-0.5.16.tgz#345d04fee80d24729486f87d0f4c1c32f317a59d"
+  integrity sha512-IT5lnR44h/qZQ4GaCHvBxYIl4cQL2i9UvFyYeRyVdcpY04hx5H720HQfe/7Oz7ndxaYVLQFGpCO71J4X2Ye/Gw==
   dependencies:
     mitt "3.0.1"
     urlpattern-polyfill "10.0.0"
@@ -3034,13 +3034,13 @@ punycode@^2.1.0:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.3.1.tgz#027422e2faec0b25e1549c3e1bd8309b9133b6e5"
   integrity sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==
 
-puppeteer-core@22.6.1:
-  version "22.6.1"
-  resolved "https://registry.yarnpkg.com/puppeteer-core/-/puppeteer-core-22.6.1.tgz#a6e7922a86fe9fdd3cdcbf73076332d8aefa1435"
-  integrity sha512-rShSd0xtyDSEJYys5nnzQnnwtrafQWg/lWCppyjZIIbYadWP8B1u0XJD/Oe+Xgw8v1hLHX0loNoA0ItRmNLnBg==
+puppeteer-core@22.6.2:
+  version "22.6.2"
+  resolved "https://registry.yarnpkg.com/puppeteer-core/-/puppeteer-core-22.6.2.tgz#1222c5777162265f88da74d847409be48aec47b4"
+  integrity sha512-Sws/9V2/7nFrn3MSsRPHn1pXJMIFn6FWHhoMFMUBXQwVvcBstRIa9yW8sFfxePzb56W1xNfSYzPRnyAd0+qRVQ==
   dependencies:
     "@puppeteer/browsers" "2.2.0"
-    chromium-bidi "0.5.14"
+    chromium-bidi "0.5.16"
     debug "4.3.4"
     devtools-protocol "0.0.1262051"
     ws "8.16.0"
