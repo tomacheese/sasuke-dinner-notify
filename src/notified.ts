@@ -30,7 +30,6 @@ export class Notified {
   }
 
   public save(): void {
-    // eslint-disable-next-line unicorn/no-null
     fs.writeFileSync(this.path, JSON.stringify(this.notified, null, 2))
   }
 

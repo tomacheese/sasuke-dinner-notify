@@ -5,6 +5,7 @@ import { FullUser } from 'twitter-d'
 import { Twitter } from '@book000/twitterts'
 
 function isFullUser(user: any): user is FullUser {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   return user.id_str !== undefined
 }
 
@@ -28,7 +29,7 @@ async function main() {
     otpSecret: config.get('twitter').otpSecret,
     puppeteerOptions: {
       executablePath: process.env.CHROMIUM_PATH,
-      userDataDirectory: process.env.USER_DATA_DIRECTORY || './data/userdata',
+      userDataDirectory: process.env.USER_DATA_DIRECTORY ?? './data/userdata',
     },
     debugOptions: {
       outputResponse: {
@@ -42,9 +43,6 @@ async function main() {
       token: discordConfig.token,
       channelId: discordConfig.channelId,
     })
-    if (discord === null) {
-      throw new Error('Discord config is invalid')
-    }
 
     // 1. Get the latest 200 tweets of a specific user using the `statuses/user_timeline` API.
     logger.info('🔍 Fetching tweets...')
@@ -55,7 +53,7 @@ async function main() {
     logger.info(`🔍 Fetched ${tweets.length} tweets`)
 
     const notified = new Notified(
-      process.env.NOTIFIED_PATH || './data/notified.json'
+      process.env.NOTIFIED_PATH ?? './data/notified.json'
     )
 
     // 2. When operating for the first time (= initialize mode), save the tweet ID of the acquired tweets as notified.
@@ -75,7 +73,6 @@ async function main() {
     const notifyTweets = tweets.filter((tweet) => {
       return (
         !notified.isNotified(tweet.id_str) &&
-        tweet.full_text &&
         tweet.full_text.includes('サスケ・ディナー')
       )
     })
@@ -121,7 +118,7 @@ async function main() {
 }
 
 ;(async () => {
-  await main().catch((error) => {
+  await main().catch((error: unknown) => {
     Logger.configure('main').error('❌ Error', error as Error)
     // eslint-disable-next-line unicorn/no-process-exit
     process.exit(1)
