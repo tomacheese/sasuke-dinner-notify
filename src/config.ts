@@ -12,7 +12,7 @@ export interface Configuration {
   }
 }
 export class SDNConfiguration extends ConfigFramework<Configuration> {
-  protected validates(): { [key: string]: (config: Configuration) => boolean } {
+  protected validates(): Record<string, (config: Configuration) => boolean> {
     return {
       'config is defined': (config) => !!config,
       'twitter is defined': (config) => !!config.twitter,
