@@ -59,14 +59,14 @@
     winston "3.13.1"
     winston-daily-rotate-file "5.0.0"
 
-"@book000/twitterts@0.64.65":
-  version "0.64.65"
-  resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.64.65.tgz#7d80fa2afd70369c173ecf47e6184c6f67b9484a"
-  integrity sha512-nSnNXRUXvNWuEvZjr58fg/W89fjhOeNWhfNULxALYDi1WvE8XlqwsuXQjxJqpF9Z8JzyymWXhUeJlT4Fc5YZvw==
+"@book000/twitterts@0.64.67":
+  version "0.64.67"
+  resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.64.67.tgz#349aa6a7d0b21277d30057c328a92843ae2488ad"
+  integrity sha512-wSzyccBPZ2tC/8N3u/wl0CinJv/n4tz3a4quOwFRbU4G94mJ23v9WD7EaXRNGgCP6i062wm4yGijuMZVvs5qgA==
   dependencies:
     "@book000/node-utils" "1.13.183"
     genson-js "0.0.8"
-    json-schema-to-typescript "14.1.0"
+    json-schema-to-typescript "15.0.0"
     mysql2 "3.10.3"
     otplib "12.0.1"
     puppeteer-core "22.13.1"
@@ -2313,10 +2313,10 @@ json-parse-even-better-errors@^2.3.0:
   resolved "https://registry.yarnpkg.com/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz#7c47805a94319928e05777405dc12e1f7a4ee02d"
   integrity sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==
 
-json-schema-to-typescript@14.1.0:
-  version "14.1.0"
-  resolved "https://registry.yarnpkg.com/json-schema-to-typescript/-/json-schema-to-typescript-14.1.0.tgz#31160d9cf13bf8f948a7ccefdf97e995bc183591"
-  integrity sha512-VIeAFQkn88gFh26MSHWG4uX7TjK/arTw0NVLMZn6vX1WrSF+P6xu5MyEdovu+9PJ0uiS5gm0wzwQvYW9eSq1uw==
+json-schema-to-typescript@15.0.0:
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/json-schema-to-typescript/-/json-schema-to-typescript-15.0.0.tgz#cf7767eee4adaf73041cc0fc9d35e1d5f953585b"
+  integrity sha512-gOX3cJB4eL1ztMc3WUh569ubRcKnr8MnYk++6+/WaaN4bufGHSR6EcbUbvLZgirPQOfvni5SSGkRx0pYloYU8A==
   dependencies:
     "@apidevtools/json-schema-ref-parser" "^11.5.5"
     "@types/json-schema" "^7.0.15"
