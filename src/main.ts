@@ -73,7 +73,8 @@ async function main() {
     const notifyTweets = tweets.filter((tweet) => {
       return (
         !notified.isNotified(tweet.id_str) &&
-        tweet.full_text.includes('サスケ・ディナー')
+        tweet.full_text.includes('サスケ・ディナー') &&
+        !tweet.full_text.startsWith('RT @')
       )
     })
     logger.info(`🔔 Notify ${notifyTweets.length} tweets`)
