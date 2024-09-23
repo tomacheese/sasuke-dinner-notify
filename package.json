@@ -26,7 +26,7 @@
     "@book000/node-utils": "1.13.257",
     "@book000/twitterts": "0.69.106",
     "@types/node": "20.16.5",
-    "@vercel/ncc": "0.38.1",
+    "@vercel/ncc": "0.38.2",
     "eslint": "9.11.0",
     "eslint-config-standard": "17.1.0",
     "eslint-plugin-import": "2.30.0",
