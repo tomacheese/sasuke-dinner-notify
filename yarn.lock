@@ -50,6 +50,19 @@
     winston "3.17.0"
     winston-daily-rotate-file "5.0.0"
 
+"@book000/node-utils@1.14.90":
+  version "1.14.90"
+  resolved "https://registry.yarnpkg.com/@book000/node-utils/-/node-utils-1.14.90.tgz#b48bb7439396020b002c5e98616b4a61f5db254a"
+  integrity sha512-BM8YJQ3BMKBw/W7IJE86ZvR1anV3O5rqCW9Eu1b2DzO6GxuFmH91cStLksnqDxc/y8P7FczETtk0mRPAoYL+sw==
+  dependencies:
+    axios "1.8.4"
+    cycle "1.0.3"
+    form-data "4.0.2"
+    jsonc-parser "3.3.1"
+    moment-timezone "0.5.48"
+    winston "3.17.0"
+    winston-daily-rotate-file "5.0.0"
+
 "@book000/twitterts@0.74.17":
   version "0.74.17"
   resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.74.17.tgz#06942b9f2bd86f6899e7b29ed2adfe38a5968910"
