@@ -31,19 +31,6 @@
     globals "16.0.0"
     typescript-eslint "8.31.1"
 
-"@book000/node-utils@1.15.7":
-  version "1.15.7"
-  resolved "https://registry.yarnpkg.com/@book000/node-utils/-/node-utils-1.15.7.tgz#28e640fd1ec6784e6dd15cbef014aea616b8b3c0"
-  integrity sha512-UPA27vVMDSEzDIItYOwrtuWU/YlcuxQBk3UEDPvwuFLYB9xO0R1Jn5wGn+vHPaKSz/qV+9k12Xv6698ZNFZU7g==
-  dependencies:
-    axios "1.9.0"
-    cycle "1.0.3"
-    form-data "4.0.2"
-    jsonc-parser "3.3.1"
-    moment-timezone "0.5.48"
-    winston "3.17.0"
-    winston-daily-rotate-file "5.0.0"
-
 "@book000/node-utils@1.15.8":
   version "1.15.8"
   resolved "https://registry.yarnpkg.com/@book000/node-utils/-/node-utils-1.15.8.tgz#435bbb4a5124bcf3046b0998cd0aec985b918d98"
@@ -57,12 +44,25 @@
     winston "3.17.0"
     winston-daily-rotate-file "5.0.0"
 
-"@book000/twitterts@0.74.37":
-  version "0.74.37"
-  resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.74.37.tgz#001356b4c5045fa2ebdf64abf93883098c8c8594"
-  integrity sha512-hV9cbSF3Vlc+MBnAnTsjQjzvz1rZpuj5KQ6cvfFuQDLbBzhmo/frJc2VVaiqWJ/kEeVab0u4NZiIbqHvB3lTVg==
+"@book000/node-utils@1.15.9":
+  version "1.15.9"
+  resolved "https://registry.yarnpkg.com/@book000/node-utils/-/node-utils-1.15.9.tgz#ef3479fb8d10a2cea2a66f293263666dbffa805f"
+  integrity sha512-e2SkBzXWeT1eV7RdH1RCWS8lUx2mzuVEwwixFzZ3RkpcWQH0bQx3bZqaZioF+xYmhHExHuaGV+Fm0DC9gK5zgA==
   dependencies:
-    "@book000/node-utils" "1.15.7"
+    axios "1.9.0"
+    cycle "1.0.3"
+    form-data "4.0.2"
+    jsonc-parser "3.3.1"
+    moment-timezone "0.5.48"
+    winston "3.17.0"
+    winston-daily-rotate-file "5.0.0"
+
+"@book000/twitterts@0.74.40":
+  version "0.74.40"
+  resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.74.40.tgz#1522c7a861cb15c0d97a92c1f1377d2d6417a3c0"
+  integrity sha512-ytnzz/nLS+xcnxcHK94VCO3JlAVVFNkluUAo5z4C9yzM2GTBNAjFrWDh655yUgTYrHcX4aVpAH7r04A/SWnZjA==
+  dependencies:
+    "@book000/node-utils" "1.15.9"
     genson-js "0.0.8"
     json-schema-to-typescript "15.0.4"
     json-stable-stringify "1.3.0"
