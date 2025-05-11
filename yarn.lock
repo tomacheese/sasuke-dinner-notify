@@ -31,10 +31,10 @@
     globals "16.1.0"
     typescript-eslint "8.32.0"
 
-"@book000/node-utils@1.15.20":
-  version "1.15.20"
-  resolved "https://registry.yarnpkg.com/@book000/node-utils/-/node-utils-1.15.20.tgz#999b62777d22b3ace06610e1bc6a6bcc7e304996"
-  integrity sha512-4lF8NzGp0BrAwVWl7T/9bZUS6ffQkIzY0gupr/fr0yCdI7fbj6QHz0pwp3jX/R3Kwma7MdDHwYQ5Jt4cPiO8Fw==
+"@book000/node-utils@1.15.21":
+  version "1.15.21"
+  resolved "https://registry.yarnpkg.com/@book000/node-utils/-/node-utils-1.15.21.tgz#59e9e57bb267da511be097725e4a35c59a8515ce"
+  integrity sha512-jobb3ZtFv1B3oZGQ7XDlMFezhxoEGIgYbrXBLsTRXyuYEYB0q+tY8pLhhCrJtOpWY65nZIV3OS0DnPNvqYq1nw==
   dependencies:
     axios "1.9.0"
     cycle "1.0.3"
@@ -57,18 +57,18 @@
     winston "3.17.0"
     winston-daily-rotate-file "5.0.0"
 
-"@book000/twitterts@0.74.48":
-  version "0.74.48"
-  resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.74.48.tgz#b3cea151bbed1f2443a450f6d1b8f1678a3d0a55"
-  integrity sha512-l404hosq26IastcmlYiYHKQQ3fMp9QkYvtUp9oZwmhaYwCgHaPUuDo0Y8zvQlto28IUhGUFtgBDpYyk+7gKZyA==
+"@book000/twitterts@0.74.51":
+  version "0.74.51"
+  resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.74.51.tgz#1cf04d513a2e2dbf4f2808ce09bda09611f83042"
+  integrity sha512-PAdu+YuntSFiNX/HRpm2TbnzC4scQZqNUmKOU9JZ49jQ5PdIQ9aanF/vQUcFOHgK1az51O1e70bdgg7vQ798fg==
   dependencies:
-    "@book000/node-utils" "1.15.20"
+    "@book000/node-utils" "1.15.21"
     genson-js "0.0.8"
     json-schema-to-typescript "15.0.4"
     json-stable-stringify "1.3.0"
     mysql2 "3.14.1"
     otplib "12.0.1"
-    puppeteer-core "24.8.1"
+    puppeteer-core "24.8.2"
     twitter-d "0.6.0"
     ulid "3.0.0"
 
@@ -285,10 +285,10 @@
     "@otplib/plugin-crypto" "^12.0.1"
     "@otplib/plugin-thirty-two" "^12.0.1"
 
-"@puppeteer/browsers@2.10.3":
-  version "2.10.3"
-  resolved "https://registry.yarnpkg.com/@puppeteer/browsers/-/browsers-2.10.3.tgz#4d89b3520359da6f7016ff96316c2c243be2b3ee"
-  integrity sha512-iPpnFpX25gKIVsHsqVjHV+/GzW36xPgsscWkCnrrETndcdxNsXLdCrTwhkCJNR/FGWr122dJUBeyV4niz/j3TA==
+"@puppeteer/browsers@2.10.4":
+  version "2.10.4"
+  resolved "https://registry.yarnpkg.com/@puppeteer/browsers/-/browsers-2.10.4.tgz#9f8923b206f7932a06d32271b14bbea3368b38f2"
+  integrity sha512-9DxbZx+XGMNdjBynIs4BRSz+M3iRDeB7qRcAr6UORFLphCIM2x3DXgOucvADiifcqCE4XePFUKcnaAMyGbrDlQ==
   dependencies:
     debug "^4.4.0"
     extract-zip "^2.0.1"
@@ -348,14 +348,7 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.17.16.tgz#94ae78fab4a38d73086e962d0b65c30d816bfb0a"
   integrity sha512-HX7Em5NYQAXKW+1T+FiuG27NGwzJfCX3s1GjOa7ujxZa52kjJLOr4FUxT+giF6Tgxv1e+/czV/iTtBw27WTU9g==
 
-"@types/node@*":
-  version "22.15.17"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.15.17.tgz#355ccec95f705b664e4332bb64a7f07db30b7055"
-  integrity sha512-wIX2aSZL5FE+MR0JlvF87BNVrtFWf6AE6rxSE9X7OwnVvoyCQjpzSRJ+M87se/4QCkCiebQAqrJ0y6fwIyi7nw==
-  dependencies:
-    undici-types "~6.21.0"
-
-"@types/node@22.15.17":
+"@types/node@*", "@types/node@22.15.17":
   version "22.15.17"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-22.15.17.tgz#355ccec95f705b664e4332bb64a7f07db30b7055"
   integrity sha512-wIX2aSZL5FE+MR0JlvF87BNVrtFWf6AE6rxSE9X7OwnVvoyCQjpzSRJ+M87se/4QCkCiebQAqrJ0y6fwIyi7nw==
@@ -2983,12 +2976,12 @@ punycode@^2.1.0:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.3.1.tgz#027422e2faec0b25e1549c3e1bd8309b9133b6e5"
   integrity sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==
 
-puppeteer-core@24.8.1:
-  version "24.8.1"
-  resolved "https://registry.yarnpkg.com/puppeteer-core/-/puppeteer-core-24.8.1.tgz#20728f431f4ed2daba23515df1f1a586c663b4ba"
-  integrity sha512-UP/VIxVk/Akrgql3a55ZAIuAIx7+yQevz6qEXFUtSTIynEcgsCJ6tlRdi7uKAAlovmNQG4iNMzq9f8WxZLnGGg==
+puppeteer-core@24.8.2:
+  version "24.8.2"
+  resolved "https://registry.yarnpkg.com/puppeteer-core/-/puppeteer-core-24.8.2.tgz#f3e939e39e001d9933e79d980371e380d9e535c1"
+  integrity sha512-wNw5cRZOHiFibWc0vdYCYO92QuKTbJ8frXiUfOq/UGJWMqhPoBThTKkV+dJ99YyWfzJ2CfQQ4T1nhhR0h8FlVw==
   dependencies:
-    "@puppeteer/browsers" "2.10.3"
+    "@puppeteer/browsers" "2.10.4"
     chromium-bidi "5.1.0"
     debug "^4.4.0"
     devtools-protocol "0.0.1439962"
