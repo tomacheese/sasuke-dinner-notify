@@ -31,19 +31,6 @@
     globals "16.2.0"
     typescript-eslint "8.34.1"
 
-"@book000/node-utils@1.18.10":
-  version "1.18.10"
-  resolved "https://registry.yarnpkg.com/@book000/node-utils/-/node-utils-1.18.10.tgz#8de5fed6246dde4ed255f8f9c325b4234d662a9b"
-  integrity sha512-/zIrFDgqyI+Yfd2QjlktHixmSJPAkO6yRc7VJ/Brrny/bMnA+7ehHWJY5D57w9L+sGZ7cl/2vrfi1JRzAitTaQ==
-  dependencies:
-    axios "1.9.0"
-    cycle "1.0.3"
-    form-data "4.0.3"
-    jsonc-parser "3.3.1"
-    moment-timezone "0.6.0"
-    winston "3.17.0"
-    winston-daily-rotate-file "5.0.0"
-
 "@book000/node-utils@1.18.23":
   version "1.18.23"
   resolved "https://registry.yarnpkg.com/@book000/node-utils/-/node-utils-1.18.23.tgz#5885403f981b593569680b506ff540c1d010726a"
@@ -57,12 +44,12 @@
     winston "3.17.0"
     winston-daily-rotate-file "5.0.0"
 
-"@book000/twitterts@0.78.0":
-  version "0.78.0"
-  resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.78.0.tgz#a04d9148bbe48bc7ce0f6ba75dd220191a297d9b"
-  integrity sha512-b4WAgg1e4XyzS2GQyl1wTJ59Sc3ampjqQmD+W5TLNDvZ1hAaTShhbfG8LHXcCTby+/iCGsdQmaXnyKAtBE8LCA==
+"@book000/twitterts@0.78.1":
+  version "0.78.1"
+  resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.78.1.tgz#d745b733520491b3d575786fc06ea2f46d04a05d"
+  integrity sha512-tSXr1yuyCT4PqVc/eMeHjS+1jreavJYKUyNJtgOodcjtv+AWp839516/Ju1iB/hXpj9JC39WpdLhvenkYXqZeg==
   dependencies:
-    "@book000/node-utils" "1.18.10"
+    "@book000/node-utils" "1.18.23"
     genson-js "0.0.8"
     json-schema-to-typescript "15.0.4"
     json-stable-stringify "1.3.0"
@@ -731,15 +718,6 @@ axios@1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.10.0.tgz#af320aee8632eaf2a400b6a1979fa75856f38d54"
   integrity sha512-/1xYAC4MP/HEG+3duIhFr4ZQXR4sQXOIe+o6sdqzeykGLx6Upp/1p8MHqhINOvGeP7xyNHe7tsiJByc4SSVUxw==
-  dependencies:
-    follow-redirects "^1.15.6"
-    form-data "^4.0.0"
-    proxy-from-env "^1.1.0"
-
-axios@1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.9.0.tgz#25534e3b72b54540077d33046f77e3b8d7081901"
-  integrity sha512-re4CqKTJaURpzbLHtIi6XpDv20/CnpXOtjRY5/CU32L8gU8ek9UIivcfvSWvmKEngmVbrUtPpdDwWDWL7DNHvg==
   dependencies:
     follow-redirects "^1.15.6"
     form-data "^4.0.0"
