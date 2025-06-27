@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@book000/eslint-config": "1.9.11",
-    "@book000/node-utils": "1.18.30",
+    "@book000/node-utils": "1.18.32",
     "@book000/twitterts": "0.78.15",
     "@types/node": "22.15.32",
     "@vercel/ncc": "0.38.3",
