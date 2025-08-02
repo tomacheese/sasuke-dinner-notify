@@ -31,19 +31,6 @@
     globals "16.3.0"
     typescript-eslint "8.37.0"
 
-"@book000/node-utils@1.18.89":
-  version "1.18.89"
-  resolved "https://registry.yarnpkg.com/@book000/node-utils/-/node-utils-1.18.89.tgz#6e23187542067dc4397009c970c252239aaa0a9d"
-  integrity sha512-dO2nSEM/c3InXwZsTRGyBkwjvVdEjAvcAzXfLepn1K/1VT0bhrXnHZvwZ6BUHIK/6+C0AnjYthBLeJtTsBoLzg==
-  dependencies:
-    axios "1.11.0"
-    cycle "1.0.3"
-    form-data "4.0.4"
-    jsonc-parser "3.3.1"
-    moment-timezone "0.6.0"
-    winston "3.17.0"
-    winston-daily-rotate-file "5.0.0"
-
 "@book000/node-utils@1.18.92":
   version "1.18.92"
   resolved "https://registry.yarnpkg.com/@book000/node-utils/-/node-utils-1.18.92.tgz#995f8cb0ba4b4af6b659b8eae2a5061942b255a4"
@@ -57,16 +44,16 @@
     winston "3.17.0"
     winston-daily-rotate-file "5.0.0"
 
-"@book000/twitterts@0.82.35":
-  version "0.82.35"
-  resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.82.35.tgz#44ab70ad7f7d3161e0ce97ec1b2dee5db2164b8f"
-  integrity sha512-0UG9leurvqFr4ZUpSDblf8Y9/qsaunDUiiCjv7AUnO1Mb6p8C0zTEDLNAJLLS5XLFSYJinylHtos5eZqwsqJUQ==
+"@book000/twitterts@0.82.39":
+  version "0.82.39"
+  resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.82.39.tgz#2561752ed7fb15339cda7229ea9f94893fb16008"
+  integrity sha512-O4tfra8BZ3Etzhhiq1J1cAaAyDn4OkafpqmovsCXP3/Lqp9B3f8TI8PCIhQqzt9zIJz1AsUHucBuQ7Z6Olv3nA==
   dependencies:
-    "@book000/node-utils" "1.18.89"
+    "@book000/node-utils" "1.18.92"
     genson-js "0.0.8"
     json-schema-to-typescript "15.0.4"
     json-stable-stringify "1.3.0"
-    mysql2 "3.14.2"
+    mysql2 "3.14.3"
     otplib "12.0.1"
     puppeteer-core "24.15.0"
     twitter-d "0.6.0"
@@ -2455,10 +2442,10 @@ ms@^2.1.1, ms@^2.1.3:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-mysql2@3.14.2:
-  version "3.14.2"
-  resolved "https://registry.yarnpkg.com/mysql2/-/mysql2-3.14.2.tgz#21fa725162da92d49261dce26362de539e11e5ca"
-  integrity sha512-YD6mZMeoypmheHT6b2BrVmQFvouEpRICuvPIREulx2OvP1xAxxeqkMQqZSTBefv0PiOBKGYFa2zQtY+gf/4eQw==
+mysql2@3.14.3:
+  version "3.14.3"
+  resolved "https://registry.yarnpkg.com/mysql2/-/mysql2-3.14.3.tgz#52aa6266b416d8b629bf398ba2be9840492b9b08"
+  integrity sha512-fD6MLV8XJ1KiNFIF0bS7Msl8eZyhlTDCDl75ajU5SJtpdx9ZPEACulJcqJWr1Y8OYyxsFc4j3+nflpmhxCU5aQ==
   dependencies:
     aws-ssl-profiles "^1.1.1"
     denque "^2.1.0"
