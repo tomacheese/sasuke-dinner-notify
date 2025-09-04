@@ -44,16 +44,16 @@
     winston "3.17.0"
     winston-daily-rotate-file "5.0.0"
 
-"@book000/twitterts@0.82.107":
-  version "0.82.107"
-  resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.82.107.tgz#95916274cba2ebf5b75d2f195f9cd18e809e517a"
-  integrity sha512-2N/YqHwRoas3DsTcs6CDd3Js5Qex7qFi46DljHJJWojPYjIGe71bbQjUsq14biLKa4b7wgnnl5bAyQHeD3VwYg==
+"@book000/twitterts@0.82.108":
+  version "0.82.108"
+  resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.82.108.tgz#67d6cbcda51a43979c28a4c18d588a1d77ecafbd"
+  integrity sha512-G8cAWHuODcSu2uFNvzB6mV+1qihNRY+EdbFE40nT2xJQXkYs64Q5WPEJ5s3YBUHlAkve44D1DtkgMSlIsEETjg==
   dependencies:
     "@book000/node-utils" "1.18.125"
     genson-js "0.0.8"
     json-schema-to-typescript "15.0.4"
     json-stable-stringify "1.3.0"
-    mysql2 "3.14.3"
+    mysql2 "3.14.4"
     otplib "12.0.1"
     puppeteer-core "24.17.1"
     twitter-d "0.6.0"
@@ -1887,10 +1887,10 @@ https-proxy-agent@^7.0.6:
     agent-base "^7.1.2"
     debug "4"
 
-iconv-lite@^0.6.3:
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.6.3.tgz#a52f80bf38da1952eb5c681790719871a1a72501"
-  integrity sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==
+iconv-lite@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.7.0.tgz#c50cd80e6746ca8115eb98743afa81aa0e147a3e"
+  integrity sha512-cf6L2Ds3h57VVmkZe+Pn+5APsT7FpqJtEhhieDCvrE2MK5Qk9MyffgQyuxQTm6BChfeZNtcOLHp9IcWRVcIcBQ==
   dependencies:
     safer-buffer ">= 2.1.2 < 3.0.0"
 
@@ -2434,15 +2434,15 @@ ms@^2.1.1, ms@^2.1.3:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-mysql2@3.14.3:
-  version "3.14.3"
-  resolved "https://registry.yarnpkg.com/mysql2/-/mysql2-3.14.3.tgz#52aa6266b416d8b629bf398ba2be9840492b9b08"
-  integrity sha512-fD6MLV8XJ1KiNFIF0bS7Msl8eZyhlTDCDl75ajU5SJtpdx9ZPEACulJcqJWr1Y8OYyxsFc4j3+nflpmhxCU5aQ==
+mysql2@3.14.4:
+  version "3.14.4"
+  resolved "https://registry.yarnpkg.com/mysql2/-/mysql2-3.14.4.tgz#36e33a8d33820a299fb9e9221486310b1a4c8767"
+  integrity sha512-Cs/jx3WZPNrYHVz+Iunp9ziahaG5uFMvD2R8Zlmc194AqXNxt9HBNu7ZsPYrUtmJsF0egETCWIdMIYAwOGjL1w==
   dependencies:
     aws-ssl-profiles "^1.1.1"
     denque "^2.1.0"
     generate-function "^2.3.1"
-    iconv-lite "^0.6.3"
+    iconv-lite "^0.7.0"
     long "^5.2.1"
     lru.min "^1.0.0"
     named-placeholders "^1.1.3"
