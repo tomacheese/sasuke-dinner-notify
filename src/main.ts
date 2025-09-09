@@ -80,7 +80,7 @@ async function main() {
     logger.info(`🔔 Notify ${notifyTweets.length} tweets`)
 
     // 4. Post filtered tweets to Discord. The tweet ID of the posted tweets will be saved as notified.
-    for (const tweet of notifyTweets.reverse()) {
+    for (const tweet of notifyTweets.toReversed()) {
       if (!isFullUser(tweet.user)) {
         continue
       }
