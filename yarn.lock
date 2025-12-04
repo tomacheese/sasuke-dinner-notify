@@ -57,10 +57,10 @@
     winston "3.18.3"
     winston-daily-rotate-file "5.0.0"
 
-"@book000/twitterts@0.85.2":
-  version "0.85.2"
-  resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.85.2.tgz#242025ecae80df9044771c1362f05c3f2d683bd0"
-  integrity sha512-Gp1KoYcei2+QUet1E7HTQoK1Bi7A8ximysocIQFwEsZORMJB4ysErqeUexf1cKoe8Gh60HxsSQIfPweeV9EhOQ==
+"@book000/twitterts@0.85.4":
+  version "0.85.4"
+  resolved "https://registry.yarnpkg.com/@book000/twitterts/-/twitterts-0.85.4.tgz#a27ad2695ae0937bc13c5f16d302cc23e0a0d05b"
+  integrity sha512-S8A6H09xWyfxnNLJURCyxUp+8EFCTOFfx+x7jk1974o6zrslH06Vp+0nFhzjz4eP6rVtY79NV0lscaaLO7n5qA==
   dependencies:
     "@book000/node-utils" "1.18.173"
     genson-js "0.0.8"
@@ -70,7 +70,7 @@
     otplib "12.0.1"
     puppeteer-core "24.25.0"
     twitter-d "0.6.0"
-    ulid "3.0.1"
+    ulid "3.0.2"
 
 "@colors/colors@1.6.0", "@colors/colors@^1.6.0":
   version "1.6.0"
@@ -3442,10 +3442,10 @@ typescript@5.9.3:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.3.tgz#5b4f59e15310ab17a216f5d6cf53ee476ede670f"
   integrity sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==
 
-ulid@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/ulid/-/ulid-3.0.1.tgz#6fae1779938843f476702946931122d127cf3243"
-  integrity sha512-dPJyqPzx8preQhqq24bBG1YNkvigm87K8kVEHCD+ruZg24t6IFEFv00xMWfxcC4djmFtiTLdFuADn4+DOz6R7Q==
+ulid@3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/ulid/-/ulid-3.0.2.tgz#b6a1f2a3de7852e39aa86bf497a8e33b1867c984"
+  integrity sha512-yu26mwteFYzBAot7KVMqFGCVpsF6g8wXfJzQUHvu1no3+rRRSFcSV2nKeYvNPLD2J4b08jYBDhHUjeH0ygIl9w==
 
 unbox-primitive@^1.1.0:
   version "1.1.0"
