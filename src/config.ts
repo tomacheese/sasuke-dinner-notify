@@ -5,6 +5,7 @@ export interface Configuration {
     username: string
     password: string
     otpSecret?: string
+    emailAddress?: string
   }
   discord: {
     token: string

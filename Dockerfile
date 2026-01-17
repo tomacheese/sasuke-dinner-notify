@@ -1,24 +1,18 @@
-FROM zenika/alpine-chrome:with-puppeteer-xvfb AS runner
+FROM node:22-slim AS runner
 
-# hadolint ignore=DL3002
-USER root
-
-# hadolint ignore=DL3018
-RUN apk upgrade --no-cache --available && \
-  apk update && \
-  apk add --no-cache \
-  x11vnc \
-  && \
-  apk add --update --no-cache tzdata && \
+# hadolint ignore=DL3008
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends tzdata ca-certificates && \
   cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
   echo "Asia/Tokyo" > /etc/timezone && \
-  apk del tzdata
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
 COPY package.json yarn.lock ./
 
-RUN echo network-timeout 600000 > .yarnrc && \
+RUN corepack enable && \
   yarn install --frozen-lockfile && \
   yarn cache clean
 
@@ -29,13 +23,10 @@ COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
 ENV TZ=Asia/Tokyo
-ENV DISPLAY=:99
-ENV CHROMIUM_PATH=/usr/bin/chromium-browser
 ENV NODE_ENV=production
 ENV CONFIG_PATH=/data/config.json
 ENV NOTIFIED_PATH=/data/notified.json
 ENV LOG_DIR=/data/logs/
-ENV USER_DATA_DIRECTORY=/data/userdata/
+ENV COOKIE_CACHE_PATH=/data/twitter-cookies.json
 
-ENTRYPOINT ["tini", "--"]
-CMD ["/app/entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
