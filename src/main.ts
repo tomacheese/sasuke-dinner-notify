@@ -267,13 +267,15 @@ async function withRetry<T>(
 
       const delay = Math.min(baseDelayMs * Math.pow(2, attempt - 1), maxDelayMs)
       logger.warn(
-        `⚠️ ${operationName}に失敗しました (${attempt}/${maxRetries}回目)、${delay / 1000}秒後にリトライします...`
+        `⚠️ ${operationName} に失敗しました (${attempt}/${maxRetries} 回目)、${delay / 1000} 秒後にリトライします...`
       )
       await new Promise((resolve) => setTimeout(resolve, delay))
     }
   }
 
-  throw new Error(`${operationName}が${maxRetries}回のリトライ後に失敗しました`)
+  throw new Error(
+    `${operationName} が ${maxRetries} 回のリトライ後に失敗しました`
+  )
 }
 
 /**
@@ -300,7 +302,7 @@ async function loginWithRetry(
 
       if (is503 && attempt < maxRetries) {
         const delay = Math.min(1000 * Math.pow(2, attempt - 1), 30_000)
-        logger.warn(`⚠️ 503エラー、${delay / 1000}秒後にリトライします...`)
+        logger.warn(`⚠️ 503 エラー、${delay / 1000} 秒後にリトライします...`)
         await new Promise((resolve) => setTimeout(resolve, delay))
       } else {
         throw error
@@ -388,13 +390,13 @@ async function main() {
   const config = new SDNConfiguration()
   config.load()
   if (!config.validate()) {
-    logger.error('❌ Config is invalid')
+    logger.error('❌ 設定が無効です')
     for (const failure of config.getValidateFailures()) {
       logger.error('- ' + failure)
     }
     return
   }
-  logger.info('✅ Config is valid. Login to Twitter...')
+  logger.info('✅ 設定が有効です。Twitter にログインします...')
 
   // 認証 Cookie を取得
   const { authToken, ct0 } = await getAuthCookies(config)
@@ -447,7 +449,7 @@ async function main() {
 
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- API レスポンスが null の可能性があるため
   const tweets = tweetsResponse.data.data ?? []
-  logger.info(`🔍 ${tweets.length}件のツイートを取得しました`)
+  logger.info(`🔍 ${tweets.length} 件のツイートを取得しました`)
 
   const notified = new Notified(
     process.env.NOTIFIED_PATH ?? './data/notified.json'
@@ -456,7 +458,7 @@ async function main() {
   // 3. 初回実行時（= 初期化モード）は、取得したツイートの ID を通知済みとして保存
   const initializeMode = notified.isFirst()
   if (initializeMode) {
-    logger.info('💾 Initialize mode. Save all tweets to file')
+    logger.info('💾 初期化モード。すべてのツイートをファイルに保存します')
     for (const tweetResult of tweets) {
       const idStr = tweetResult.tweet.legacy?.idStr ?? tweetResult.tweet.restId
       if (idStr) {
@@ -480,7 +482,7 @@ async function main() {
       !fullText.startsWith('RT @')
     )
   })
-  logger.info(`🔔 Notify ${notifyTweets.length} tweets`)
+  logger.info(`🔔 ${notifyTweets.length} 件のツイートを通知します`)
 
   // 5. フィルタ済みツイートを Discord に投稿。投稿したツイートの ID は通知済みとして保存
   for (const tweetResult of notifyTweets.toReversed()) {
