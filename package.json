@@ -34,6 +34,7 @@
     "eslint-plugin-n": "17.23.2",
     "eslint-plugin-promise": "7.2.1",
     "prettier": "3.7.4",
+    "rimraf": "^6.1.2",
     "tsx": "^4.21.0",
     "typescript": "5.9.3",
     "yarn-run-all": "3.1.1"
