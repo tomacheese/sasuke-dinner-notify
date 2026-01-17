@@ -319,7 +319,7 @@ async function getAuthCookies(config: SDNConfiguration): Promise<{
   // キャッシュされた Cookie があれば使用
   const cached = loadCachedCookies()
   if (cached) {
-    logger.info('🍪 Using cached cookies')
+    logger.info('🍪 キャッシュされた Cookie を使用します')
     return { authToken: cached.auth_token, ct0: cached.ct0 }
   }
 
@@ -328,7 +328,7 @@ async function getAuthCookies(config: SDNConfiguration): Promise<{
   const username = twitterConfig.username
   const password = twitterConfig.password
 
-  logger.info('🔐 Logging in with twitter-scraper + CycleTLS...')
+  logger.info('🔐 twitter-scraper + CycleTLS でログイン中...')
   // カスタム fetch 関数を使用（プロキシサポート付き）
   const scraper = new Scraper({
     fetch: cycleTLSFetchWithProxy,
